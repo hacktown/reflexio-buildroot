@@ -1,0 +1,4 @@
+test:
+  override:
+    - make raspberrypi2_wpe_defconfig
+    - make
