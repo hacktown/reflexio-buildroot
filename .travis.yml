@@ -1,0 +1,4 @@
+language: c
+script:
+  - make raspberrypi2_wpe_defconfig
+  - make
