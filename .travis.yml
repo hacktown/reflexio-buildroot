@@ -1,4 +1,5 @@
 language: c
+install: build-essential git subversion cvs unzip whois ncurses-dev bc mercurial
 script:
   - make raspberrypi2_wpe_defconfig
   - make
