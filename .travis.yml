@@ -1,6 +1,9 @@
 language: c
 install:
-  - sudo apt-get install binutils build-essential git subversion cvs unzip whois ncurses-dev bc mercurial
+  - sudo apt-get install ccache binutils build-essential git subversion cvs unzip whois ncurses-dev bc mercurial
 script:
+  - echo $PATH
+  - uname -a
+  - gcc -v
   - make raspberrypi2_wpe_defconfig
   - make
