@@ -1,9 +1,6 @@
 language: c
 install:
-  - sudo sh -c "echo 'foreign-architecture i386' > /etc/dpkg/dpkg.cfg.d/multiarch"
-  - sudo dpkg --add-architecture i386
-  - sudo apt-get update
-  - sudo apt-get install build-essential git subversion cvs unzip whois ncurses-dev bc mercurial
+  - sudo apt-get install binutils build-essential git subversion cvs unzip whois ncurses-dev bc mercurial
 script:
   - make raspberrypi2_wpe_defconfig
   - make
