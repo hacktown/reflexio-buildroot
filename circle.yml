@@ -4,4 +4,4 @@ dependencies:
 test:
   override:
     - make raspberrypi2_wpe_defconfig
-    - make
+    - make 2> build-error.log > build.log
