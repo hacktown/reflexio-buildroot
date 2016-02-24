@@ -7,7 +7,7 @@ language: c
   
 script:
   - docker pull debian
-  - docker run debian /bin/sh -c "echo -e 'deb http://httpredir.debian.org/debian jessie main\ndeb-src http://httpredir.debian.org/debian jessie main\ndeb http://httpredir.debian.org/debian jessie-updates main\ndeb-src http://httpredir.debian.org/debian jessie-updates main\n' > /etc/apt/sources.list"
+  - docker run debian /bin/sh -c "apt-get update"
   - docker run debian /bin/sh -c "apt-get install binutils build-essential git subversion cvs unzip whois ncurses-dev bc mercurial"
   - docker run debian /bin/sh -c "make raspberrypi2_wpe_defconfig"
   - docker run debian /bin/sh -c "make"
