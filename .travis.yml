@@ -1,9 +1,11 @@
-language: c
-install:
-  - sudo apt-get install ccache binutils build-essential git subversion cvs unzip whois ncurses-dev bc mercurial
+sudo: required
+
+services:
+  - docker
+  
 script:
-  - echo $PATH
-  - uname -a
-  - gcc -v
-  - make raspberrypi2_wpe_defconfig
-  - make
+  - docker pull debian
+  - docker run debian /bin/sh -c "cd /root/sinatra; bundle exec rake test"
+  - docker run debian /bin/sh -c "apt-get install ccache binutils build-essential git subversion cvs unzip whois ncurses-dev bc mercurial"
+  - docker run debian /bin/sh -c "make raspberrypi2_wpe_defconfig"
+  - docker run debian /bin/sh -c "make"
