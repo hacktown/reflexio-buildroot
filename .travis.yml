@@ -7,4 +7,4 @@ language: c
   
 script:
   - docker pull debian
-  - docker run debian /bin/sh -c "apt-get update; apt-get install binutils build-essential git subversion cvs unzip whois ncurses-dev bc mercurial; make raspberrypi2_wpe_defconfig; make -j3"
+  - docker run debian /bin/sh -c "apt-get update; apt-get install --assume-yes binutils build-essential git subversion cvs unzip whois ncurses-dev bc mercurial; make raspberrypi2_wpe_defconfig; make -j3"
