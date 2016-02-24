@@ -7,4 +7,4 @@ language: c
   
 script:
   - docker pull debian
-  - docker run -v $(pwd):/mnt debian /bin/sh -c "cd /mnt; apt-get update; apt-get install --assume-yes locales binutils build-essential git subversion cvs unzip whois ncurses-dev bc mercurial wget cpio; echo 'en_US.UTF-8 UTF-8' > /etc/locale.gen; locale-gen; export LANG=en_US.UTF-8; make raspberrypi2_wpe_defconfig; make -j3 2>&1 > output.log"
+  - docker run -v $(pwd):/mnt debian /bin/sh -c "cd /mnt; apt-get update; apt-get install --assume-yes locales binutils build-essential git subversion cvs unzip whois ncurses-dev bc mercurial wget cpio; echo 'en_US.UTF-8 UTF-8' > /etc/locale.gen; locale-gen; export LANG=en_US.UTF-8; make raspberrypi2_wpe_defconfig; make -s -j3"
