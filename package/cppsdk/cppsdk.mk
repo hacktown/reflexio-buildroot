@@ -4,7 +4,7 @@
 #
 ################################################################################
 
-CPPSDK_VERSION = aaa43bc337f552a780f27e5c8d874b6f1407e4cc
+CPPSDK_VERSION = b7377b9a40808d7df2f84a967281f24ac2f6f344
 CPPSDK_SITE_METHOD = git
 CPPSDK_SITE = git@github.com:Metrological/cppsdk.git
 CPPSDK_INSTALL_STAGING = YES
@@ -15,6 +15,14 @@ else ifeq ($(BR2_PACKAGE_BCM_REFSW)$(BR2_arm),yy)
 CPPSDK_CONF_OPTS += -DCPPSDK_PLATFORM=EOS
 else ifeq ($(BR2_PACKAGE_BCM_REFSW)$(BR2_mipsel),yy)
 CPPSDK_CONF_OPTS += -DCPPSDK_PLATFORM=DAWN
+else ifeq ($(BR2_PACKAGE_INTELCE_SDK),y)
+CPPSDK_CONF_OPTS += -DCPPSDK_PLATFORM=INTELCE
+CPPSDK_DEPENDENCIES += intelce-osal
+else ifeq ($(BR2_PACKAGE_HORIZON_SDK),y)
+CPPSDK_CONF_OPTS += -DCPPSDK_PLATFORM=INTELCE
+CPPSDK_DEPENDENCIES += intelce-osal
+else
+$( error "-DCPPSDK_PLATFORM not set")
 endif
 
 ifeq ($(BR2_ENABLE_DEBUG),y)
