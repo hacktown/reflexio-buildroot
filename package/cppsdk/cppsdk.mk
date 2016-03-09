@@ -4,7 +4,7 @@
 #
 ################################################################################
 
-CPPSDK_VERSION = b7377b9a40808d7df2f84a967281f24ac2f6f344
+CPPSDK_VERSION = fd9fca046ddc2507226c4057c08ea621257811f0
 CPPSDK_SITE_METHOD = git
 CPPSDK_SITE = git@github.com:Metrological/cppsdk.git
 CPPSDK_INSTALL_STAGING = YES
@@ -20,7 +20,6 @@ CPPSDK_CONF_OPTS += -DCPPSDK_PLATFORM=INTELCE
 CPPSDK_DEPENDENCIES += intelce-osal
 else ifeq ($(BR2_PACKAGE_HORIZON_SDK),y)
 CPPSDK_CONF_OPTS += -DCPPSDK_PLATFORM=INTELCE
-CPPSDK_DEPENDENCIES += intelce-osal
 else
 $( error "-DCPPSDK_PLATFORM not set")
 endif

@@ -4,7 +4,7 @@
 #
 ################################################################################
 
-WPE_VERSION = 05ea31043b6997a934ea9fda87b649e1403e7aa4
+WPE_VERSION = 0f69916ffd37ace5652180398941073726fa7e72
 WPE_SITE = $(call github,Metrological,WebKitForWayland,$(WPE_VERSION))
 
 WPE_INSTALL_STAGING = YES
@@ -54,6 +54,7 @@ else
 ifeq ($(BR2_PACKAGE_WAYLAND),y)
 WPE_DEPENDENCIES += wayland
 WPE_FLAGS += -DUSE_WPE_BACKEND_WAYLAND=ON
+WPE_FLAGS += -DUSE_WPE_BUFFER_MANAGEMENT_GBM=ON
 endif
 ifeq ($(BR2_PACKAGE_LIBDRM)$(BR2_PACKAGE_INTELCE_SDK),yn)
 WPE_DEPENDENCIES += libdrm

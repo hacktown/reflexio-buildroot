@@ -38,6 +38,13 @@ config BR2_PACKAGE_PLUGIN_TRACECONTROL
 	  NOTE: Tracing does NOT replace logging but is a tool for 
 	  developpers to analyse there code. 
 
+config BR2_PACKAGE_PLUGIN_MONITOR
+	bool "monitor"
+	help
+	  A plugin that allows for a monitoring plugins with respect to 
+	  memory usage. Hard limits can be set on the maximum memory usage 
+	  and in case the limits are violated, the plugin can be restarted.
+
 config BR2_PACKAGE_PLUGIN_DICTIONARY
 	bool "dictionary"
 	help
@@ -93,6 +100,7 @@ config BR2_PACKAGE_PLUGIN_BROWSER
 
 config BR2_PACKAGE_PLUGIN_NETFLIX
 	bool "netflix"
+	select BR2_PACKAGE_CPPSDK_PROCESS
 	depends on BR2_PACKAGE_NETFLIX_LIB
 	help
 	  A wrapper around the netflix app to start it as a
@@ -103,6 +111,7 @@ comment "netflix is dependent on the netflix package compiled as library"
 
 config BR2_PACKAGE_PLUGIN_WEBKITBROWSER 
 	bool "webkitbrowser"
+	select BR2_PACKAGE_CPPSDK_PROCESS
 	depends on BR2_PACKAGE_WPE
 	help
 	  A plugin that manages the webkit browser functionality
