@@ -1,0 +1,7 @@
+dependencies:
+  pre:
+    - sudo apt-get install build-essential git subversion cvs unzip whois ncurses-dev bc mercurial
+test:
+  override:
+    - make raspberrypi2_wpe_defconfig
+    - make 2> build-error.log
